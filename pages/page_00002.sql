@@ -1,0 +1,209 @@
+prompt --application/pages/page_00002
+begin
+--   Manifest
+--     PAGE: 00002
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.3'
+,p_default_workspace_id=>29767519959794401040
+,p_default_application_id=>178414
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_BLESSINGS'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>2
+,p_name=>'University'
+,p_alias=>'UNIVERSITY1'
+,p_step_title=>'University'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<p>To find data enter a search term into the search dialog, or click on the column headings to limit the records returned.</p>',
+'',
+'<p>You can perform numerous functions by clicking the <strong>Actions</strong> button. This includes selecting the columns that are displayed / hidden and their display sequence, plus numerous data and format functions.  You can also define additiona'
+||'l views of the data using the chart, group by, and pivot options.</p>',
+'',
+'<p>If you want to save your customizations select report, or click download to unload the data. Enter you email address and time frame under subscription to be sent the data on a regular basis.<p>',
+'',
+'<p>For additional information click Help at the bottom of the Actions menu.</p> ',
+'',
+'<p>Click the <strong>Reset</strong> button to reset the interactive report back to the default settings.</p>'))
+,p_page_component_map=>'03'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(29793807318412994885)
+,p_plug_name=>'Breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(29793606630408994582)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_menu_id=>wwv_flow_imp.id(29793490916741994531)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>wwv_flow_imp.id(29793669452914994612)
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(29797753564495075601)
+,p_plug_name=>'University'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(29793594274636994577)
+,p_plug_display_sequence=>10
+,p_location=>null
+,p_lazy_loading=>true
+,p_plug_source_type=>'NATIVE_MAP_REGION'
+);
+wwv_flow_imp_page.create_map_region(
+ p_id=>wwv_flow_imp.id(29797753650341075602)
+,p_region_id=>wwv_flow_imp.id(29797753564495075601)
+,p_height=>640
+,p_navigation_bar_type=>'FULL'
+,p_navigation_bar_position=>'END'
+,p_init_position_zoom_type=>'QUERY_RESULTS'
+,p_layer_messages_position=>'BELOW'
+,p_legend_position=>'END'
+,p_features=>'SCALE_BAR:INFINITE_MAP:RECTANGLE_ZOOM'
+);
+wwv_flow_imp_page.create_map_region_layer(
+ p_id=>wwv_flow_imp.id(29797753715659075603)
+,p_map_region_id=>wwv_flow_imp.id(29797753650341075602)
+,p_name=>'New'
+,p_layer_type=>'POINT'
+,p_display_sequence=>10
+,p_location=>'LOCAL'
+,p_query_type=>'TABLE'
+,p_table_name=>'UGANDAN_UNIVERSITY'
+,p_include_rowid_column=>false
+,p_has_spatial_index=>false
+,p_pk_column=>'UNIVERSITY_ID'
+,p_geometry_column_data_type=>'SDO_GEOMETRY'
+,p_geometry_column=>'START_POINT'
+,p_point_display_type=>'SVG'
+,p_point_svg_shape=>'Default'
+,p_feature_clustering=>false
+,p_tooltip_adv_formatting=>false
+,p_tooltip_column=>'UNIVERSITY_NAME'
+,p_info_window_adv_formatting=>false
+,p_info_window_title_column=>'UNIVERSITY_ID'
+,p_info_window_body_column=>'UNIVERSITY_NAME'
+,p_allow_hide=>true
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(29797753861681075604)
+,p_name=>'New'
+,p_template=>wwv_flow_imp.id(29793594274636994577)
+,p_display_sequence=>20
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_component_template_options=>'#DEFAULT#:t-Report--altRowsDefault:t-Report--rowHighlight'
+,p_new_grid_row=>false
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'TABLE'
+,p_query_table=>'RANKINGS'
+,p_include_rowid_column=>false
+,p_ajax_enabled=>'Y'
+,p_ajax_items_to_submit=>'P2_NEW,P2_NEW_1,P2_NEW_1_1'
+,p_lazy_loading=>false
+,p_query_row_template=>wwv_flow_imp.id(29793632697783994594)
+,p_query_num_rows=>15
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_csv_output=>'N'
+,p_prn_output=>'N'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'N'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(29797753957604075605)
+,p_query_column_id=>1
+,p_column_alias=>'ID'
+,p_column_display_sequence=>10
+,p_column_heading=>'Id'
+,p_use_as_row_header=>'N'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(29797754018570075606)
+,p_query_column_id=>2
+,p_column_alias=>'UNIVERSITY_ID'
+,p_column_display_sequence=>20
+,p_column_heading=>'University Id'
+,p_use_as_row_header=>'N'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(29797754110798075607)
+,p_query_column_id=>3
+,p_column_alias=>'RANKING_YEAR'
+,p_column_display_sequence=>30
+,p_column_heading=>'Ranking Year'
+,p_use_as_row_header=>'N'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(29797754274638075608)
+,p_query_column_id=>4
+,p_column_alias=>'GLOBAL_RANK'
+,p_column_display_sequence=>40
+,p_column_heading=>'Global Rank'
+,p_use_as_row_header=>'N'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(29797754349718075609)
+,p_query_column_id=>5
+,p_column_alias=>'NATIONAL_RANK'
+,p_column_display_sequence=>50
+,p_column_heading=>'National Rank'
+,p_use_as_row_header=>'N'
+,p_column_alignment=>'RIGHT'
+,p_heading_alignment=>'RIGHT'
+,p_disable_sort_column=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(29797754445578075610)
+,p_name=>'P2_NEW'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(29797753564495075601)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(29797754586837075611)
+,p_name=>'P2_NEW_1'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(29797753564495075601)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(29797754621703075612)
+,p_name=>'P2_NEW_1_1'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(29797753564495075601)
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp.component_end;
+end;
+/
